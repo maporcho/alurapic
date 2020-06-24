@@ -13,19 +13,9 @@ export class PhotoListComponent implements OnInit {
 
   filter: string;
 
-  constructor(
-    private photoService: PhotoService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const username = this.route.snapshot.params['username'];
-
-    console.log('Listando fotos de ' + username);
-
-    this.photoService.listFromUser(username).subscribe((photos) => {
-      console.log('Photos from service' + photos);
-      this.photos = photos;
-    });
+    this.photos = this.route.snapshot.data.photos;
   }
 }
