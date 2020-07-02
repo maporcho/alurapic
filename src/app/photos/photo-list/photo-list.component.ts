@@ -31,6 +31,7 @@ export class PhotoListComponent implements OnInit, OnDestroy {
       .pipe(debounceTime(300))
       .subscribe((filter) => (this.filter = filter));
     this.hasMore = this.photos && this.photos.length > 0;
+    console.log('carregou');
   }
 
   ngOnDestroy() {
