@@ -11,7 +11,7 @@ import { Photo } from '../photo/photo';
 export class PhotoListComponent implements OnInit {
   public photos: Photo[] = [];
 
-  filter: string;
+  filter: string = '';
 
   hasMore: boolean = false;
   currentPage: number = 1;
