@@ -34,6 +34,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot(routes, { useHash: true })], //usado para suportar navegadores antigos, que sempre diparam requisição para o backend quando URL muda e que, portanto, não trbalham bem com SPA.
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
