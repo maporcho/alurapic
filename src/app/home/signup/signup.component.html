@@ -3,6 +3,7 @@
 <form [formGroup]="signupForm" class="form mt-4" (submit)="signUp()">
   <div class="form-group">
     <input
+      #emailInput
       formControlName="email"
       placeholder="email"
       class="form-control"
@@ -98,5 +99,5 @@
     Register
   </button>
 
-  <p>Already a user?<a [routerLink]="['']">Sign In!</a></p>
+  <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
 </form>
