@@ -13,7 +13,6 @@ export class PhotosComponent implements OnChanges {
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.photos) {
-      console.log('Photos changed: ' + changes.photos);
       this.rows = this.groupColumns(this.photos);
     }
   }
