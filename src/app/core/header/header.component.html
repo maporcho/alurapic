@@ -12,9 +12,7 @@
     <ap-menu #menu>
       <ul class="list-unstyled">
         <li>
-          <a *ngIf="user$ | async as user" [routerLink]="['p', 'add']"
-            >Upload</a
-          >
+          <a showIfLogged [routerLink]="['p', 'add']">Upload</a>
         </li>
       </ul>
     </ap-menu>
