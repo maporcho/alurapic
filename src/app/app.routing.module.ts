@@ -9,6 +9,7 @@ import { LoginGuard } from './core/auth/login.guard';
 import { AuthGuard } from './core/auth/auth.guard';
 import { PhotoDetailsModule } from './photos/photo-details/photo-details.module';
 import { PhotoDetailsComponent } from './photos/photo-details/photo-details.component';
+import { GlobalErrorComponent } from './errors/global-error/global-error.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,13 @@ const routes: Routes = [
     component: NotFoundComponent,
     data: {
       title: 'Not found',
+    },
+  },
+  {
+    path: 'error',
+    component: GlobalErrorComponent,
+    data: {
+      title: 'Error',
     },
   },
   { path: '**', component: NotFoundComponent },
