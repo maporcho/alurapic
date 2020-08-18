@@ -19,7 +19,11 @@ export class AuthGuard implements CanActivate {
     | import('rxjs').Observable<boolean | import('@angular/router').UrlTree>
     | Promise<boolean | import('@angular/router').UrlTree> {
     if (!this.userService.isLogged()) {
-      this.router.navigate(['']);
+      this.router.navigate([''], {
+        queryParams: {
+          fromUrl: state.url,
+        },
+      });
       return false;
     }
     return true;
