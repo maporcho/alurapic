@@ -6,6 +6,7 @@ import { NewUser } from './new-user';
 import { SignupService } from './signup.service';
 import { Router } from '@angular/router';
 import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
+import { userNamePassword } from './username-password.validator';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -25,35 +26,38 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     const fnUserNameTaken = this.userNotTakenValidatorService.checkUserNnameTaken();
-    this.signupForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      fullName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(40),
+    this.signupForm = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        fullName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(40),
+          ],
         ],
-      ],
-      userName: [
-        '',
-        [
-          Validators.required,
-          lowerCaseValidator,
-          Validators.minLength(2),
-          Validators.maxLength(30),
+        userName: [
+          '',
+          [
+            Validators.required,
+            lowerCaseValidator,
+            Validators.minLength(2),
+            Validators.maxLength(30),
+          ],
+          [fnUserNameTaken],
         ],
-        [fnUserNameTaken],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(14),
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(8),
+            Validators.maxLength(14),
+          ],
         ],
-      ],
-    });
+      },
+      { validators: [userNamePassword] }
+    );
   }
 
   ngAfterViewInit(): void {

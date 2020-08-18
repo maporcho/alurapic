@@ -88,7 +88,10 @@
     ></ap-vmessage>
     <ap-vmessage
       text="Must be a valid username!"
-      *ngIf="signupForm.get('userName').errors?.lowerCase && (form.submitted || signupForm.get('userName').touched)"
+      *ngIf="
+        signupForm.get('userName').errors?.lowerCase &&
+        (form.submitted || signupForm.get('userName').touched)
+      "
     ></ap-vmessage>
     <ap-vmessage
       text="Username already taken"
@@ -109,15 +112,28 @@
     />
     <ap-vmessage
       text="Password is required!"
-      *ngIf="signupForm.get('password').errors?.required && (form.submitted || signupForm.get('password').touched)"
+      *ngIf="
+        signupForm.get('password').errors?.required &&
+        (form.submitted || signupForm.get('password').touched)
+      "
     ></ap-vmessage>
     <ap-vmessage
       text="Password is 8!"
-      *ngIf="signupForm.get('password').errors?.minlength && (form.submitted || signupForm.get('password').touched)"
+      *ngIf="
+        signupForm.get('password').errors?.minlength &&
+        (form.submitted || signupForm.get('password').touched)
+      "
     ></ap-vmessage>
     <ap-vmessage
       text="Password is 14!"
-      *ngIf="signupForm.get('password').errors?.maxlength && (form.submitted || signupForm.get('password').touched)"
+      *ngIf="
+        signupForm.get('password').errors?.maxlength &&
+        (form.submitted || signupForm.get('password').touched)
+      "
+    ></ap-vmessage>
+    <ap-vmessage
+      text="Username and password must be different!"
+      *ngIf="signupForm.errors?.userNamePassword"
     ></ap-vmessage>
   </div>
 
